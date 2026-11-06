@@ -152,7 +152,7 @@ impl<'a> Prober<'a> {
 
     pub fn probe(&self, position: &Position) -> Option<Wdl> {
         let result = unsafe {
-            fathom::tb_probe_root(
+            fathom::tb_probe_wdl(
                 position.white,
                 position.black,
                 position.kings,
@@ -165,7 +165,6 @@ impl<'a> Prober<'a> {
                 position.castling,
                 position.ep,
                 position.turn,
-                std::ptr::null_mut(),
             )
         };
 
